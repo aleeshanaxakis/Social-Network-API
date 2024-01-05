@@ -1,9 +1,14 @@
-const { connect, connection } = require('mongoose');
+const { connect } = require('mongoose');
 
-const connectionString = 'mongodb://127.0.0.1:27017/studentsDB';
+const uri = 'mongodb://127.0.0.1:27017/studentsDB';
 
-// Connect to the database and get the connection object
-const db = connect(connectionString);
+const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+};
 
-// Export the connection object
+const db = connect(uri, options);
+
 module.exports = db;
